@@ -1,4 +1,10 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: 'Reproducible Research: Peer Assessment 1'
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+---
 
 
 ```r
@@ -39,7 +45,7 @@ totals <- tapply(completeData$steps, completeData$date, FUN=sum, na.rm=TRUE)
 barplot(totals, xlab="date", ylab="Total no. of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 ```r
 ### Mean and median
@@ -65,7 +71,7 @@ averages <- tapply(completeData$steps, completeData$interval, FUN=mean, na.rm=TR
 plot(averages, type="l", xlab="interval", ylab="average steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 ## Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -119,7 +125,7 @@ newtotals <- tapply(newData$steps, newData$date, FUN=sum, na.rm=TRUE)
 barplot(newtotals, main="After imputing missing values", xlab="date", ylab="Total no. of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
 
 ## Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
@@ -172,4 +178,4 @@ colnames(overallAverage) <- c("interval", "average", "daytype")
 xyplot(as.numeric(average) ~ as.numeric(as.character(interval)) | daytype, data=overallAverage, type='l', layout=c(1, 2), xlab="interval", ylab="average steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
